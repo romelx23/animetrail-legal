@@ -1,5 +1,243 @@
 <!doctype html>
 <html lang="es">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta http-equiv="refresh" content="0; url=privacidad.html"><title>AnimeTrail</title></head>
-<body><a href="privacidad.html">Política de privacidad</a> · <a href="soporte.html">Soporte</a></body>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AnimeTrail · Aventura por GPS en el mundo real</title>
+<meta name="description" content="AnimeTrail es un juego de aventuras por GPS: recorre tu ciudad, recoge cristales, colecciona personajes y compañeros anime.">
+<meta property="og:title" content="AnimeTrail · Aventura por GPS">
+<meta property="og:description" content="Recorre tu ciudad, recoge cristales y colecciona personajes anime.">
+<meta property="og:type" content="website">
+<link rel="icon" href="img/avatar_guardabosques.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0B1029; --surface: #1E2A5A; --primary: #6A5CFF; --accent: #00D4FF;
+    --sakura: #FF7BF7; --premium: #FFD166; --text: #FFFFFF; --muted: #B9C2E6;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: radial-gradient(1100px 620px at 12% -8%, #2A1E6B 0%, transparent 60%),
+                radial-gradient(900px 520px at 108% 12%, #0E4A66 0%, transparent 55%),
+                var(--bg);
+    color: var(--text);
+    font-family: "Nunito", system-ui, -apple-system, "Segoe UI", sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 16px; }
+  /* Barra superior */
+  header.top { padding: 18px 0; }
+  header.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+  .brand { font-weight: 900; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); text-shadow: 0 0 14px rgba(0,212,255,.5); text-decoration: none; }
+  nav a { color: var(--muted); text-decoration: none; font-weight: 700; font-size: 14px; margin-left: 16px; }
+  nav a:hover { color: var(--text); }
+  /* Hero */
+  .hero { display: grid; gap: 28px; align-items: center; padding: 28px 0 56px; }
+  @media (min-width: 860px) { .hero { grid-template-columns: 1.1fr .9fr; padding: 56px 0 80px; } }
+  .eyebrow {
+    display: inline-block; font-size: 13px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--bg); background: var(--premium); padding: 4px 12px; border-radius: 999px;
+  }
+  h1 {
+    font-size: clamp(38px, 7vw, 66px); line-height: 1.02; margin: 14px 0 16px; font-weight: 900;
+    text-shadow: 0 0 26px rgba(0,212,255,.35);
+  }
+  h1 span { color: var(--accent); }
+  .lead { color: var(--muted); font-size: 18px; max-width: 520px; margin: 0 0 24px; }
+  .cta-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px; padding: 14px 26px; border-radius: 999px;
+    font-weight: 900; font-size: 16px; text-decoration: none; color: #fff;
+    background: linear-gradient(135deg, #8B7DFF, var(--primary));
+    box-shadow: 0 0 22px rgba(106,92,255,.6); border: 1px solid rgba(255,255,255,.35);
+  }
+  .btn[aria-disabled="true"] { background: #2B3570; box-shadow: none; color: var(--muted); cursor: default; }
+  .btn-ghost { color: var(--text); text-decoration: none; font-weight: 800; padding: 14px 18px; border-radius: 999px; border: 1px solid rgba(106,92,255,.6); background: rgba(30,42,90,.6); }
+  .note { color: var(--muted); font-size: 13px; margin-top: 10px; }
+  /* Escena con personajes */
+  .stage {
+    position: relative; border-radius: 28px; padding: 22px;
+    background: linear-gradient(160deg, rgba(30,42,90,.9), rgba(14,20,50,.9));
+    border: 1px solid rgba(106,92,255,.55); box-shadow: 0 0 40px rgba(106,92,255,.3);
+  }
+  .stage-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; align-items: end; }
+  .stage-grid img { width: 100%; height: auto; display: block; filter: drop-shadow(0 8px 16px rgba(0,0,0,.45)); }
+  .stage-grid figure { margin: 0; text-align: center; }
+  .stage-grid figcaption { font-size: 12px; color: var(--muted); margin-top: 6px; font-weight: 700; }
+  /* Secciones */
+  section.block { padding: 40px 0; }
+  h2 { font-size: clamp(26px, 4.5vw, 36px); margin: 0 0 10px; font-weight: 900; }
+  h2 span { color: var(--sakura); }
+  .sub { color: var(--muted); max-width: 640px; margin: 0 0 24px; font-size: 17px; }
+  .cards { display: grid; gap: 16px; }
+  @media (min-width: 700px) { .cards { grid-template-columns: repeat(3, 1fr); } }
+  .card {
+    background: rgba(30,42,90,.78); border: 1px solid rgba(106,92,255,.55); border-radius: 20px;
+    padding: 22px; box-shadow: 0 0 22px rgba(106,92,255,.2);
+  }
+  .card .ico { font-size: 28px; margin-bottom: 8px; }
+  .card h3 { margin: 0 0 6px; font-size: 19px; color: var(--accent); font-weight: 900; }
+  .card p { margin: 0; color: var(--text); font-size: 15px; }
+  /* Personajes */
+  .heroes { display: grid; gap: 14px; }
+  @media (min-width: 700px) { .heroes { grid-template-columns: repeat(4, 1fr); } }
+  .hero-card {
+    text-align: center; padding: 16px 12px 14px; border-radius: 20px;
+    background: rgba(30,42,90,.78); border: 1px solid rgba(106,92,255,.5);
+  }
+  .hero-card img { width: 100%; max-width: 180px; height: auto; display: block; margin: 0 auto; }
+  .hero-card h3 { margin: 8px 0 2px; font-size: 16px; font-weight: 900; }
+  .hero-card p { margin: 0; font-size: 13px; color: var(--muted); }
+  /* Pasos */
+  .steps { counter-reset: s; display: grid; gap: 14px; }
+  @media (min-width: 700px) { .steps { grid-template-columns: repeat(3, 1fr); } }
+  .step { position: relative; padding: 22px 22px 22px 70px; border-radius: 20px; background: rgba(14,20,50,.6); border: 1px solid rgba(0,212,255,.35); }
+  .step::before {
+    counter-increment: s; content: counter(s); position: absolute; left: 20px; top: 18px;
+    width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center;
+    background: var(--accent); color: #05152A; font-weight: 900;
+  }
+  .step h3 { margin: 0 0 4px; font-size: 17px; font-weight: 900; }
+  .step p { margin: 0; color: var(--muted); font-size: 15px; }
+  /* Pie y CTA final */
+  .final {
+    text-align: center; padding: 48px 22px; border-radius: 28px; margin: 24px 0 0;
+    background: linear-gradient(135deg, rgba(106,92,255,.35), rgba(0,212,255,.18));
+    border: 1px solid rgba(106,92,255,.6);
+  }
+  .final h2 { margin-bottom: 6px; }
+  footer { padding: 28px 0 40px; color: var(--muted); font-size: 14px; text-align: center; }
+  footer nav a { margin: 0 10px; }
+  footer nav { margin-top: 10px; }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="./">AnimeTrail</a>
+    <nav aria-label="Principal">
+      <a href="#como">Cómo jugar</a>
+      <a href="#personajes">Personajes</a>
+      <a href="soporte">Soporte</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="hero">
+    <div>
+      <span class="eyebrow">Aventura por GPS · Android</span>
+      <h1>Tu ciudad es el <span>mapa</span>.</h1>
+      <p class="lead">Camina, recoge cristales, descubre rastros y colecciona personajes anime. Cada paseo cuenta: lo que recorres en la vida real se convierte en tu aventura.</p>
+      <div class="cta-row">
+        <a class="btn" href="#" aria-disabled="true" title="Disponible próximamente">Próximamente en Google Play</a>
+        <a class="btn-ghost" href="#como">Ver cómo funciona</a>
+      </div>
+      <p class="note">La app estará disponible en Google Play cuando termine la publicación.</p>
+    </div>
+
+    <div class="stage" aria-label="Personajes de AnimeTrail">
+      <div class="stage-grid">
+        <figure><img src="img/avatar_guardabosques.png" alt="Guardabosques, personaje con capa verde y hojas en el pelo" loading="eager"><figcaption>Guardabosques</figcaption></figure>
+        <figure><img src="img/avatar_explorador_perrito.png" alt="Explorador con perrito, con gorra y bufanda naranja" loading="eager"><figcaption>Explorador</figcaption></figure>
+        <figure><img src="img/avatar_maga_felina.png" alt="Maga felina, con capa morada y orejas de gato" loading="eager"><figcaption>Maga felina</figcaption></figure>
+        <figure><img src="img/avatar_rayo.png" alt="Rayo, con chaqueta amarilla y chispas eléctricas" loading="eager"><figcaption>Rayo</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="como">
+    <h2>Cómo <span>funciona</span></h2>
+    <p class="sub">Sin teléfono en la mano todo el tiempo: sales a caminar, la app hace el resto.</p>
+    <div class="steps">
+      <div class="step">
+        <h3>Sal a caminar</h3>
+        <p>Tu posición aparece en el mapa de tu ciudad. Cada recorrido revela nuevos puntos.</p>
+      </div>
+      <div class="step">
+        <h3>Recoge cristales</h3>
+        <p>Llega a los puntos de la aventura y reclama cristales, premios y rastros.</p>
+      </div>
+      <div class="step">
+        <h3>Colecciona</h3>
+        <p>Desbloquea personajes, mascotas y efectos. Equipa tu favorito y muéstralo en el mapa.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2>Lo que <span>encontrarás</span></h2>
+    <p class="sub">Un juego pensado para pasear, con una estética de anime y mucha personalidad.</p>
+    <div class="cards">
+      <div class="card">
+        <div class="ico">🗺️</div>
+        <h3>Mapa de tu ciudad</h3>
+        <p>Calles reales, recompensas en el camino y un recorrido que cambia cada día.</p>
+      </div>
+      <div class="card">
+        <div class="ico">🐾</div>
+        <h3>Compañeros</h3>
+        <p>Un zorro de bosque, un perrito naranja y un gato sombra te acompañan mientras caminas.</p>
+      </div>
+      <div class="card">
+        <div class="ico">✨</div>
+        <h3>Rastros y efectos</h3>
+        <p>Hojas, luciérnagas, chispas eléctricas y humo morado para personalizar cada paso.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="personajes">
+    <h2>Conoce a los <span>personajes</span></h2>
+    <p class="sub">Cada uno tiene su estilo, sus animaciones y su propio paquete de avatares.</p>
+    <div class="heroes">
+      <div class="hero-card">
+        <img src="img/avatar_guardabosques.png" alt="Guardabosques" loading="lazy">
+        <h3>Guardabosques</h3>
+        <p>Pack Bosque</p>
+      </div>
+      <div class="hero-card">
+        <img src="img/avatar_explorador_perrito.png" alt="Explorador con perrito" loading="lazy">
+        <h3>Explorador con perrito</h3>
+        <p>Pack Cachorro</p>
+      </div>
+      <div class="hero-card">
+        <img src="img/avatar_maga_felina.png" alt="Maga felina" loading="lazy">
+        <h3>Maga felina</h3>
+        <p>Pack Sombra Felina</p>
+      </div>
+      <div class="hero-card">
+        <img src="img/avatar_rayo.png" alt="Rayo" loading="lazy">
+        <h3>Rayo</h3>
+        <p>Pack Tormenta</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="final">
+    <h2>¿Listo para <span>salir</span>?</h2>
+    <p class="sub" style="margin: 0 auto 20px;">Tu próxima aventura empieza en la puerta de tu casa.</p>
+    <a class="btn" href="#" aria-disabled="true" title="Disponible próximamente">Próximamente en Google Play</a>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>AnimeTrail · Hecho por Romel Carrasco</div>
+    <nav aria-label="Legal">
+      <a href="privacidad">Política de privacidad</a>
+      <a href="soporte">Soporte</a>
+    </nav>
+  </div>
+</footer>
+
+</body>
 </html>
