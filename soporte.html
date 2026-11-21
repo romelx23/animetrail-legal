@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Soporte · AnimeTrail</title>
+<meta name="description" content="Ayuda y soporte de AnimeTrail: GPS, compras, restauración y contacto.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0B1029; --surface: #1E2A5A; --primary: #6A5CFF; --accent: #00D4FF;
+    --sakura: #FF7BF7; --premium: #FFD166; --text: #FFFFFF; --muted: #B9C2E6;
+  }
+  @media (prefers-color-scheme: light) {
+    :root:not([data-theme="light"]) { --bg: #0B1029; }
+  }
+  :root[data-theme="dark"] { --bg: #0B1029; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: radial-gradient(1200px 600px at 10% -10%, #2A1E6B 0%, transparent 60%),
+                radial-gradient(900px 500px at 110% 10%, #0E4A66 0%, transparent 55%),
+                var(--bg);
+    color: var(--text);
+    font-family: "Nunito", system-ui, -apple-system, "Segoe UI", sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 32px 16px 64px; }
+  header { text-align: center; margin-bottom: 28px; }
+  .logo { font-size: 14px; letter-spacing: 3px; color: var(--accent); font-weight: 800; text-transform: uppercase; }
+  h1 {
+    font-size: clamp(28px, 6vw, 40px); margin: 8px 0 6px; font-weight: 800;
+    text-shadow: 0 0 18px rgba(0, 212, 255, .45);
+  }
+  .meta { color: var(--muted); font-size: 14px; }
+  nav { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: 18px 0 8px; }
+  nav a {
+    color: var(--text); text-decoration: none; font-weight: 700; font-size: 14px;
+    padding: 8px 14px; border-radius: 999px; border: 1px solid rgba(106, 92, 255, .6);
+    background: rgba(30, 42, 90, .6);
+  }
+  nav a[aria-current="page"] { background: var(--primary); border-color: var(--primary); }
+  section {
+    background: rgba(30, 42, 90, .78);
+    border: 1px solid rgba(106, 92, 255, .55);
+    border-radius: 20px; padding: 20px 20px 6px; margin: 16px 0;
+    box-shadow: 0 0 22px rgba(106, 92, 255, .22);
+  }
+  h2 { font-size: 20px; margin: 0 0 10px; color: var(--accent); font-weight: 800; }
+  h3 { font-size: 16px; margin: 14px 0 4px; color: var(--sakura); font-weight: 800; }
+  p, li { color: var(--text); font-size: 15px; }
+  ul { padding-left: 20px; }
+  li { margin: 6px 0; }
+  .cta {
+    display: inline-block; margin: 8px 0 14px; padding: 12px 22px; border-radius: 999px;
+    background: linear-gradient(135deg, #8B7DFF, var(--primary)); color: #fff; font-weight: 800;
+    text-decoration: none; box-shadow: 0 0 18px rgba(106, 92, 255, .55);
+  }
+  .note { color: var(--muted); font-size: 13px; }
+  a { color: var(--accent); }
+  footer { text-align: center; color: var(--muted); font-size: 13px; margin-top: 32px; }
+  @media (max-width: 480px) { .wrap { padding: 24px 16px 48px; } section { padding: 16px 16px 4px; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="logo">AnimeTrail</div>
+    <h1>Centro de soporte</h1>
+    <div class="meta">Respuestas rápidas y contacto</div>
+    <nav aria-label="Secciones">
+      <a href="privacidad.html">Privacidad</a>
+      <a href="soporte.html" aria-current="page">Soporte</a>
+    </nav>
+  </header>
+
+  <section>
+    <h2>Escríbenos</h2>
+    <p>¿Algo no funciona, tienes una duda o quieres pedir la eliminación de tus datos? Escríbenos:</p>
+    <a class="cta" href="mailto:alexisdevloper2722@gmail.com?subject=Soporte%20AnimeTrail">Enviar correo</a>
+    <p class="note">Incluye el modelo de tu teléfono, la versión de Android y una descripción del problema. Si puedes, adjunta una captura de pantalla.</p>
+  </section>
+
+  <section>
+    <h2>Preguntas frecuentes</h2>
+
+    <h3>El mapa no muestra mi posición</h3>
+    <ul>
+      <li>Revisa que el GPS esté activado en Android.</li>
+      <li>En los ajustes de la app, activa el permiso de <strong>Ubicación</strong> (precisa, no aproximada).</li>
+      <li>Sal al aire libre o acércate a una ventana: el GPS dentro de edificios es menos preciso.</li>
+    </ul>
+
+    <h3>No detecta mis recorridos o los premios no aparecen</h3>
+    <ul>
+      <li>Mantén la app abierta mientras caminas; los recorridos se detectan con la app en primer plano.</li>
+      <li>Si el mapa aparece en gris o sin calles, revisa tu conexión a internet: el mapa se descarga al abrirlo.</li>
+    </ul>
+
+    <h3>Compré un pack o gemas y no los veo</h3>
+    <ul>
+      <li>Las gemas se suman en cuanto Google Play confirma el pago. Cierra y vuelve a abrir la app.</li>
+      <li>Si el pago se quedó pendiente, espera unos minutos y reinicia la app.</li>
+      <li>Si el problema sigue, escríbenos con el número de pedido de Google Play.</li>
+    </ul>
+
+    <h3>Cambié de teléfono y perdí mis compras</h3>
+    <ul>
+      <li>Instala AnimeTrail con la misma cuenta de Google y pulsa <strong>Restaurar compras</strong> en la tienda.</li>
+      <li>Las compras se restauran desde Google Play; el progreso del juego (monedas, colección, rastros) se guarda en el dispositivo y no se transfiere automáticamente.</li>
+    </ul>
+
+    <h3>Quiero un reembolso</h3>
+    <ul>
+      <li>Los reembolsos los gestiona Google Play. Puedes solicitarlo desde <strong>Google Play → Pedidos y suscripciones</strong> dentro de los plazos que indique Google.</li>
+      <li>Si necesitas ayuda para gestionarlo, escríbenos.</li>
+    </ul>
+
+    <h3>Quiero borrar mis datos</h3>
+    <ul>
+      <li>Borrar los datos de la app desde los ajustes de Android elimina el progreso guardado en tu dispositivo.</li>
+      <li>Para cualquier otro dato, escríbenos a <strong>alexisdevloper2722@gmail.com</strong>. Consulta la <a href="privacidad.html">política de privacidad</a>.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Información de la app</h2>
+    <ul>
+      <li>Plataforma: Android (Google Play).</li>
+      <li>Desarrollador: <strong>Romel Carrasco</strong>.</li>
+      <li>Idioma: español.</li>
+    </ul>
+  </section>
+
+  <footer>
+    <div>AnimeTrail · <a href="privacidad.html">Política de privacidad</a></div>
+  </footer>
+</div>
+</body>
+</html>
